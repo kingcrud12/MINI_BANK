@@ -1,8 +1,11 @@
 package fr.techcrud.minibank.domain.model;
 
+import lombok.Getter;
+
 import java.time.Instant;
 import java.util.UUID;
 
+@Getter
 public class LedgerEntry {
     private final UUID id;
     private final UUID transferId;
