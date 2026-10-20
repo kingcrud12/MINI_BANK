@@ -1,4 +1,4 @@
-package fr.techcrud.minibank.application.out;
+package fr.techcrud.minibank.application.port.out;
 
 import fr.techcrud.minibank.domain.model.Account;
 
