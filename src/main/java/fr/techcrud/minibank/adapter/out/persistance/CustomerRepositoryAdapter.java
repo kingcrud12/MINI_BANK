@@ -3,6 +3,7 @@ package fr.techcrud.minibank.adapter.out.persistance;
 import fr.techcrud.minibank.adapter.out.persistance.SpringData.SpringDataCustomerRepository;
 import fr.techcrud.minibank.adapter.out.persistance.entity.CustomerJpaEntity;
 import fr.techcrud.minibank.application.port.out.CustomerRepository;
+import fr.techcrud.minibank.application.port.out.LoadCustomer;
 import fr.techcrud.minibank.domain.model.Customer;
 import fr.techcrud.minibank.domain.model.Email;
 import org.springframework.stereotype.Component;
@@ -11,7 +12,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Component
-public class CustomerRepositoryAdapter implements CustomerRepository {
+public class CustomerRepositoryAdapter implements CustomerRepository, LoadCustomer {
 
     private final SpringDataCustomerRepository repository;
 
@@ -28,6 +29,11 @@ public class CustomerRepositoryAdapter implements CustomerRepository {
     public Customer save(Customer customer) {
         CustomerJpaEntity saved = repository.save(toEntity(customer));
         return toDomain(saved);
+    }
+
+    @Override
+    public boolean existsByEmail(String email) {
+        return repository.existsByEmail(email);
     }
 
     private CustomerJpaEntity toEntity(Customer customer) {
