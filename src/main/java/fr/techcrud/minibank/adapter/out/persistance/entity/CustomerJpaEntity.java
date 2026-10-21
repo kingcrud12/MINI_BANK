@@ -1,5 +1,6 @@
 package fr.techcrud.minibank.adapter.out.persistance.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -20,7 +21,13 @@ public class CustomerJpaEntity {
     private UUID id;
     private String firstName;
     private String lastName;
+
+    @Column(nullable = false, unique = true)
     private String email;
+
+
     private String passwordHash;
+
+    @Column(nullable = false, updatable = false)
     private Instant createdAt;
 }

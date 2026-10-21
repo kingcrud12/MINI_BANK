@@ -1,4 +1,4 @@
-package fr.techcrud.minibank.adapter.out;
+package fr.techcrud.minibank.adapter.out.persistance;
 
 import fr.techcrud.minibank.adapter.out.persistance.SpringData.SpringDataCustomerRepository;
 import fr.techcrud.minibank.adapter.out.persistance.entity.CustomerJpaEntity;
