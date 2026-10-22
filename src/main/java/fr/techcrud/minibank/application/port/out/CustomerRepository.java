@@ -8,5 +8,7 @@ public interface CustomerRepository {
 
     Optional<Customer> findById(UUID id);
 
+    Optional<Customer> findByEmail(String email);
+
     Customer save(Customer customer);
 }

@@ -36,6 +36,11 @@ public class CustomerRepositoryAdapter implements CustomerRepository, LoadCustom
         return repository.existsByEmail(email);
     }
 
+    @Override
+    public Optional<Customer> findByEmail(String email) {
+        return repository.findByEmail(email).map(this::toDomain);
+    }
+
     private CustomerJpaEntity toEntity(Customer customer) {
         CustomerJpaEntity entity = new CustomerJpaEntity();
         entity.setId(customer.getId());
